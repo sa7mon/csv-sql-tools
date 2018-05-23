@@ -35,6 +35,8 @@ Downloaded la\_crime.csv. Grabbed mo_codes.pdf, then `pdftotext -layout input.pd
 ### Test Cases
 * ``` SELECT * FROM la_crime-stats_2010-present.csv WHERE victim_age < 20```
 * ```SELECT weapon_description FROM la_crime.csv WHERE weapon_description LIKE '%knife%'```
+* ``` SELECT crime.date_occurred, crime.crime_code_description, mo.mo_description FROM la_crime.asv AS crime JOIN la_crime_mo_codes.asv AS mo ON (crime.mo_codes = mo.mo_code)``` <- Little janky because mo_codes column can have multiple codes
+   * q: ```SELECT crime.date_occurred, crime.crime_code_description, mo.mo_description FROM la_crime.asv crime JOIN la_crime_mo_codes.asv mo ON (crime.mo_codes = mo.mo_code)```
 * select count
 * select and order
 * JOIN 2 tables
